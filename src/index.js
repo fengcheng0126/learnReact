@@ -121,12 +121,25 @@ function App() {
 }
 */
 
-function GitHubUser() {
-  
+function GitHubUser({ login }) {
+  const [data, setData] = useState(null)
+  useEffect(() =>  {
+    fetch('https://api.github.com/users')
+    .then(res => res.json())
+    .then(setData)
+    .catch(console.error);
+  }, []);
+
+  if(data) {
+    return (
+      <div>{JSON.stringify(data)}</div>
+    );
+  }
+  return null;
 }
 
 function App() {
-
+  return <GitHubUser login='fengcheng0126' />
 }
 
 ReactDOM.render(
