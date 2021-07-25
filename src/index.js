@@ -121,29 +121,27 @@ function App() {
 }
 */
 
-function GitHubUser({ login }) {
-  const [data, setData] = useState(null)
-  useEffect(() =>  {
-    fetch('https://api.github.com/users')
-    .then(res => res.json())
-    .then(setData)
-    .catch(console.error);
-  }, []);
+function Checkbox() {
+  const [checked, setChecked] = useState(false);
 
-  if(data) {
-    return (
-      <div>{JSON.stringify(data)}</div>
-    );
-  }
-  return null;
+function toggle() {
+  setChecked(checked => !checked);
 }
 
-function App() {
-  return <GitHubUser login='fengcheng0126' />
+  return (
+    <>
+      <input 
+        type='checkbox' 
+        value={checked}
+        onChange={toggle}
+      />
+      {checked ? 'checked': 'not checked'}
+    </>
+  );
 }
 
 ReactDOM.render(
-  <App />,
+  <Checkbox />,
   document.getElementById('root')
 );
 
