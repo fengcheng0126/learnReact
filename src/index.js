@@ -122,10 +122,12 @@ function App() {
 */
 
 function Checkbox() {
-  const [checked, setChecked] = useState(false);
+  const [checked, toggle] = useState(
+    checked => !checked, false
+  );
 
 function toggle() {
-  setChecked(checked => !checked);
+  setChecked();
 }
 
   return (
