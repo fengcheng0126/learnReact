@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import App from './App';
+
 /*
 const lakeList = [
   'Lake 1',
@@ -119,16 +121,12 @@ function App() {
     </>
   );
 }
-*/
 
 function Checkbox() {
-  const [checked, toggle] = useState(
-    checked => !checked, false
+  const [checked, toggle] = useReducer(
+    checked => !checked, 
+    false
   );
-
-function toggle() {
-  setChecked();
-}
 
   return (
     <>
@@ -141,9 +139,12 @@ function toggle() {
     </>
   );
 }
+*/
+
+
 
 ReactDOM.render(
-  <Checkbox />,
+  <App login='fengcheng0126'/>,
   document.getElementById('root')
 );
 
