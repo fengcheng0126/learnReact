@@ -144,7 +144,7 @@ function Checkbox() {
 
 
 ReactDOM.render(
-  <App login='fengcheng0126'/>,
+  <App /*login='fengcheng0126'*/ />,
   document.getElementById('root')
 );
 
